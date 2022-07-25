@@ -1,0 +1,53 @@
+pipeline {
+  
+  parameters {
+    string(name: 'environment', defaultValue: 'default', description: 'Workspace/environment file to use for deployment')
+    booleanParam(name : 'autoApprove', defaultValue: false, description: 'Automatically run apply after generating plan?')
+  }
+  
+  environment{
+    aws_access_key = credentials('aws_access_key')
+    aws_secret_key = credentials('aws_secret_key')
+  }
+
+  agent any
+
+  tools {
+terraform 'terraform-10'
+}
+  options {
+    skipDefaultCheckout(true)
+  }
+  stages{
+    stage('clean workspace') {
+      steps {
+        cleanWs()
+      }
+    }
+    stage('checkout') {
+      steps {
+         checkout scm 
+      }
+    }
+    stage('terraform init') {
+      steps {
+        bat 'terraform init'
+      }
+    }
+    stage('terraform plan') {
+      steps {
+        bat "terraform plan -var-file=${environment}.tfvars"
+      }
+    }
+    stage('terraform apply') {
+      steps {
+        bat "terraform apply -var-file=${environment}.tfvars -auto-approve  -no-color"
+      }
+    }
+  }
+  post {
+    always {
+      cleanWs()
+    }
+  }
+}

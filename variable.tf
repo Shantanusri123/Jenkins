@@ -6,6 +6,17 @@
 #  type = string
 # }
 
-# variable "aws_region" {
-# }
+variable "aws_region" {
+}
 
+variable "ami"{
+  type = string
+  
+}
+
+variable "security_group"{
+}
+
+variable "instance_name"{
+  type = string
+}

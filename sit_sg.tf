@@ -18,3 +18,7 @@ resource "aws_security_group" "sit_sg"{
   }
   
 }
+
+output "sit_sg_id"{
+  value = aws_security_group.sit_sg.id
+}

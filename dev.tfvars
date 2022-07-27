@@ -3,4 +3,4 @@
 aws_region = "ap-south-1"
 ami = "ami-08df646e18b182346"
 security_group = aws_security_group.dev_sg
-instance_name = "Dev isntance"
+instance_name = "Dev instance"

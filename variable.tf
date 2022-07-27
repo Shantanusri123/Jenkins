@@ -15,6 +15,7 @@ variable "ami"{
 }
 
 variable "security_group"{
+  type = list
 }
 
 variable "instance_name"{

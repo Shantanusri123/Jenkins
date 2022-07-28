@@ -1,4 +1,4 @@
-data "aws_security_group" "dev_sg"{
+resource "aws_security_group" "dev_sg"{
   name = "dev_sg"
   ingress{
     from_port = 22

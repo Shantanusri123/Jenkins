@@ -1,4 +1,4 @@
-resource "aws_security_group" "dev_sg"{
+data "aws_security_group" "dev_sg"{
   name = "dev_sg"
   ingress{
     from_port = 22
@@ -18,6 +18,6 @@ resource "aws_security_group" "dev_sg"{
   }
   
 }
-output "dev_sg_id"{
-  value = aws_security_group.dev_sg.id
-}
+# output "dev_sg_id"{
+#   value = aws_security_group.dev_sg.id
+# }

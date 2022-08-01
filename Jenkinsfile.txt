@@ -32,7 +32,7 @@ terraform 'terraform-10'
  
  steps{
     
- git url: 'https://github.com/Shantanusri123/ec2-instance-tfvars.git', branch: 'master', credentialsId: '8afde9d3-b353-4f21-ad6c-ce1b771e33b1'
+ bat "git clone https://8afde9d3-b353-4f21-ad6c-ce1b771e33b1@github.com/Shantanusri123/ec2-instance-tfvars.git"
 
   } 
 

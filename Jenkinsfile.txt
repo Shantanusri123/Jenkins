@@ -33,18 +33,17 @@ terraform 'terraform-10'
             checkout \
                 scm: [ $class : 'GitSCM', \
                      branches: [[name: '*/master']], \
-                     extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: '']], 
+                     extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: ''], 
                                  [ $class: 'ScmName', name: 'subdirectory1' ]], \
                      userRemoteConfigs: [[ \
                          url: 'https://github.com/Shantanusri123/ec2-Instance.git'  \
                      ]]
                 ]
-            ]
             checkout \
                 scm: [ $class : 'GitSCM', \
                      branches: [[name: '*/master']], \
-                     extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: '']], 
-                                 [[ $class: 'ScmName', name: 'subdirectory2' ]], \
+                     extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: ''], 
+                                 [ $class: 'ScmName', name: 'subdirectory2' ]], \
                      userRemoteConfigs: [[ \
                          url: 'https://github.com/Shantanusri123/ec2-instance-tfvars.git'  \
                      ]]

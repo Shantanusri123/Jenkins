@@ -33,7 +33,7 @@ terraform 'terraform-10'
             $class: 'GitSCM', 
             branches: [[name: 'refs/heads/master']], 
             doGenerateSubmoduleConfigurations: false, 
-            extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'C:\ProgramData\Jenkins\.jenkins\workspace']], 
+            extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: '']], 
             submoduleCfg: [], 
             userRemoteConfigs: [[credentialsId: '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', url: 'https://github.com/Shantanusri123/ec2-Instance.git']]
         ])
@@ -42,7 +42,7 @@ terraform 'terraform-10'
             $class: 'GitSCM', 
             branches: [[name: 'refs/heads/master']], 
             doGenerateSubmoduleConfigurations: false, 
-            extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'C:\ProgramData\Jenkins\.jenkins\workspace']], 
+            extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: '']], 
             submoduleCfg: [], 
             userRemoteConfigs: [[credentialsId: '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', url: 'https://github.com/Shantanusri123/ec2-instance-tfvars.git']]
         ])

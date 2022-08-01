@@ -28,19 +28,13 @@ terraform 'terraform-10'
     
    
     
-    stage('checkout') {
+ stage('checkout') {
  
  steps{
     
-   checkout([  
-            $class: 'GitSCM', 
-            branches: [[name: 'refs/heads/master']], 
-            doGenerateSubmoduleConfigurations: false, 
-            extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: '']], 
-            submoduleCfg: [], 
-            userRemoteConfigs: [[credentialsId: '8afde9d3-b353-4f21-ad6c-ce1b771e33b1', url: 'https://github.com/Shantanusri123/ec2-instance-tfvars.git']]
-        ])
-} 
+ git url: 'https://github.com/Shantanusri123/ec2-instance-tfvars.git', branch: 'master', credentialsId: '8afde9d3-b353-4f21-ad6c-ce1b771e33b1'
+
+  } 
 
 }
     

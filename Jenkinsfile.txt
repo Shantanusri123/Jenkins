@@ -36,7 +36,7 @@ terraform 'terraform-10'
                      extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: ''], 
                                  [ $class: 'ScmName', name: 'subdirectory1' ]], \
                      userRemoteConfigs: [[ \
-                         url: 'https://github.com/Shantanusri123/ec2-Instance.git'  \
+                         url: 'https://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@github.com/Shantanusri123/ec2-Instance.git'  \
                      ]]
                 ]
             checkout \
@@ -45,7 +45,7 @@ terraform 'terraform-10'
                      extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: ''], 
                                  [ $class: 'ScmName', name: 'subdirectory2' ]], \
                      userRemoteConfigs: [[ \
-                         url: 'https://github.com/Shantanusri123/ec2-instance-tfvars.git'  \
+                         url: 'https://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@github.com/Shantanusri123/ec2-instance-tfvars.git'  \
                      ]]
                 ]
         }

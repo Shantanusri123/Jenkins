@@ -36,7 +36,7 @@ terraform 'terraform-10'
             doGenerateSubmoduleConfigurations: false, 
             extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: '']], 
             submoduleCfg: [], 
-            userRemoteConfigs: [[credentialsId: 'Jenkins_pipeling', url: 'https://github.com/Shantanusri123/ec2-Instance.git']]
+            userRemoteConfigs: [[credentialsId: 'Jenkins_pipeline', url: 'https://github.com/Shantanusri123/ec2-Instance.git']]
         ])
  // Get Combination from GitHub
  checkout([  
@@ -45,7 +45,7 @@ terraform 'terraform-10'
             doGenerateSubmoduleConfigurations: false, 
             extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: '']], 
             submoduleCfg: [], 
-            userRemoteConfigs: [[credentialsId: 'Jenkins_pipeling', url: 'https://github.com/Shantanusri123/ec2-instance-tfvars.git']]
+            userRemoteConfigs: [[credentialsId: 'Jenkins_pipeline', url: 'https://github.com/Shantanusri123/ec2-instance-tfvars.git']]
         ])
 
 } 

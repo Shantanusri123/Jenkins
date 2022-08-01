@@ -25,9 +25,32 @@ terraform 'terraform-10'
       }
     }
     stage('checkout') {
-      steps {
+      /*steps {
          checkout scm 
-      }
+      }*/
+      
+       steps {
+            checkout \
+                scm: [ $class : 'GitSCM', \
+                     branches: [[name: '*/master']], \
+                     extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: '']], 
+                                 [ $class: 'ScmName', name: 'subdirectory1' ]], \
+                     userRemoteConfigs: [[ \
+                         url: 'https://github.com/Shantanusri123/ec2-Instance.git'  \
+                     ]]
+                ]
+            ]
+            checkout \
+                scm: [ $class : 'GitSCM', \
+                     branches: [[name: '*/master']], \
+                     extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: '']], 
+                                 [ $class: 'ScmName', name: 'subdirectory2' ]], \
+                     userRemoteConfigs: [[ \
+                         url: 'https://github.com/Shantanusri123/ec2-instance-tfvars.git'  \
+                     ]]
+                ]
+            ]
+        }
     }
     stage('terraform init') {
       steps {

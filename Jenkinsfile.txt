@@ -41,8 +41,9 @@ terraform 'terraform-10'
     
     stage('terraform init') {
       steps {
-        dir ("terraform-repo")
+        dir ("terraform-repo"){
         bat 'terraform init'
+        }
       }
     }
     stage('terraform plan') {

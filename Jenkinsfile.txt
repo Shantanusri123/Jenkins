@@ -32,9 +32,14 @@ terraform 'terraform-10'
  
  steps{
     
-    bat "git clone https://$GitHubUser_USR:$GitHubUser_PSW@github.com/Shantanusri123/ec2-instance-tfvars.git"
-
-
+   checkout([  
+            $class: 'GitSCM', 
+            branches: [[name: 'refs/heads/master']], 
+            doGenerateSubmoduleConfigurations: false, 
+            extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: '']], 
+            submoduleCfg: [], 
+            userRemoteConfigs: [[credentialsId: '${GitHubUser}', url: 'https://github.com/Shantanusri123/ec2-instance-tfvars.git']]
+        ])
 } 
 
 }

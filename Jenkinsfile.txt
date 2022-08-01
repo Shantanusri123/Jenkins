@@ -24,10 +24,12 @@ terraform 'terraform-10'
         cleanWs()
       }
     }
+    
+    /*
     stage('checkout') {
-      /*steps {
+      steps {
          checkout scm 
-      }*/
+      }
       
        steps {
             checkout \
@@ -49,7 +51,34 @@ terraform 'terraform-10'
                      ]]
                 ]
         }
-    }
+
+    }*/
+    
+    stage('Checkout') {
+ // Get CalibrationResults from GitHub
+ checkout([  
+            $class: 'GitSCM', 
+            branches: [[name: 'refs/heads/master']], 
+            doGenerateSubmoduleConfigurations: false, 
+            extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: '']], 
+            submoduleCfg: [], 
+            userRemoteConfigs: [[credentialsId: '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', url: 'https://github.com/Shantanusri123/ec2-Instance.git']]
+        ])
+ // Get Combination from GitHub
+ checkout([  
+            $class: 'GitSCM', 
+            branches: [[name: 'refs/heads/master']], 
+            doGenerateSubmoduleConfigurations: false, 
+            extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: '']], 
+            submoduleCfg: [], 
+            userRemoteConfigs: [[credentialsId: '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', url: 'https://github.com/Shantanusri123/ec2-instance-tfvars.git']]
+        ])
+
+ 
+
+}
+    
+    
     stage('terraform init') {
       steps {
         bat 'terraform init'

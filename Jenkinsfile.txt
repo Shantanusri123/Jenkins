@@ -28,27 +28,19 @@ terraform 'terraform-10'
    
     
     stage('Checkout') {
- // Get CalibrationResults from GitHub
+ 
  steps{
- checkout([  
-            $class: 'GitSCM', 
-            branches: [[name: 'refs/heads/master']], 
-            doGenerateSubmoduleConfigurations: false, 
-            extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: '']], 
-            submoduleCfg: [], 
-            userRemoteConfigs: [[credentialsId: 'Jenkins_pipeline', url: 'https://github.com/Shantanusri123/ec2-Instance.git']]
-        ])
- // Get Combination from GitHub
- checkout([  
-            $class: 'GitSCM', 
-            branches: [[name: 'refs/heads/master']], 
-            doGenerateSubmoduleConfigurations: false, 
-            extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: '']], 
-            submoduleCfg: [], 
-            userRemoteConfigs: [[credentialsId: 'Jenkins_pipeline', url: 'https://github.com/Shantanusri123/ec2-instance-tfvars.git']]
-        ])
+    
+    git credentialsId: 'Jenkins_pipeline' , url: 'https://github.com/Shantanusri123/ec2-instance-tfvars.git'
+
 
 } 
+ steps{
+    
+    git credentialsId: 'Jenkins_pipeline' , url: 'https://github.com/Shantanusri123/ec2-instance.git'
+
+
+}
 
 }
     

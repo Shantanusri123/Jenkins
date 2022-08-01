@@ -36,7 +36,7 @@ terraform 'terraform-10'
             doGenerateSubmoduleConfigurations: false, 
             extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: '']], 
             submoduleCfg: [], 
-            userRemoteConfigs: [[credentialsId: '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', url: 'https://github.com/Shantanusri123/ec2-Instance.git']]
+            userRemoteConfigs: [[url: 'https://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@github.com/Shantanusri123/ec2-Instance.git']]
         ])
  // Get Combination from GitHub
  checkout([  
@@ -45,7 +45,7 @@ terraform 'terraform-10'
             doGenerateSubmoduleConfigurations: false, 
             extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: '']], 
             submoduleCfg: [], 
-            userRemoteConfigs: [[credentialsId: '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', url: 'https://github.com/Shantanusri123/ec2-instance-tfvars.git']]
+            userRemoteConfigs: [[url: 'https://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@github.com/Shantanusri123/ec2-instance-tfvars.git']]
         ])
 
 } 

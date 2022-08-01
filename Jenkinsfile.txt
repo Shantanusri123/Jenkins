@@ -8,6 +8,7 @@ pipeline {
   environment{
     aws_access_key = credentials('aws_access_key')
     aws_secret_key = credentials('aws_secret_key')
+    GitHubUser = credentials('Jenkins_pipeline') 
   }
 
   agent any
@@ -27,11 +28,11 @@ terraform 'terraform-10'
     
    
     
-    stage('Checkout') {
+    stage('checkout') {
  
  steps{
     
-    git credentialsId: 'Jenkins_pipeline' , url: 'https://github.com/Shantanusri123/ec2-instance-tfvars.git'
+    bat "git clone https://$GitHubUser_USR:$GitHubUser_PSW@github.com/Shantanusri123/ec2-instance-tfvars.git"
 
 
 } 

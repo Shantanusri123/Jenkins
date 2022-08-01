@@ -35,12 +35,6 @@ terraform 'terraform-10'
 
 
 } 
- steps{
-    
-    git credentialsId: 'Jenkins_pipeline' , url: 'https://github.com/Shantanusri123/ec2-instance.git'
-
-
-}
 
 }
     

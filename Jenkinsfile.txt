@@ -29,6 +29,7 @@ terraform 'terraform-10'
     
     stage('Checkout') {
  // Get CalibrationResults from GitHub
+ steps{
  checkout([  
             $class: 'GitSCM', 
             branches: [[name: 'refs/heads/master']], 
@@ -47,7 +48,7 @@ terraform 'terraform-10'
             userRemoteConfigs: [[credentialsId: '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', url: 'https://github.com/Shantanusri123/ec2-instance-tfvars.git']]
         ])
 
- 
+} 
 
 }
     

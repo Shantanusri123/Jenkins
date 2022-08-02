@@ -32,7 +32,7 @@ terraform 'terraform-10'
  
  steps{
     dir ("terraform-repo"){
- bat "git clone  -o master https://8afde9d3-b353-4f21-ad6c-ce1b771e33b1@github.com/Shantanusri123/ec2-instance-tfvars.git"
+ bat "git clone  -o master https://97a244cd-c6e2-4a6e-bfcf-a281c5a0b009@github.com/Shantanusri123/ec2-instance-tfvars.git"
   }
   } 
 

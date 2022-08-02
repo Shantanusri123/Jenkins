@@ -17,7 +17,7 @@ pipeline {
      terraform 'terraform-10'
   }
   tools{
-       git
+       git 'git'
   }
   options {
     skipDefaultCheckout(true)

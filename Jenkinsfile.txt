@@ -32,7 +32,7 @@ pipeline {
  
  steps{
     dir ("terraform-repo"){
- bat "git clone  -o master https://70ebd6e4-6c27-4c4f-8f1a-512d22f66878@github.com/Shantanusri123/ec2-instance-tfvars.git"
+ sh "git clone  -o master https://70ebd6e4-6c27-4c4f-8f1a-512d22f66878@github.com/Shantanusri123/ec2-instance-tfvars.git"
   }
   } 
 
@@ -42,18 +42,18 @@ pipeline {
     stage('terraform init') {
       steps {
         dir ("terraform-repo"){
-        bat 'terraform init'
+        sh 'terraform init'
         }
       }
     }
     stage('terraform plan') {
       steps {
-        bat "terraform plan -var-file=${environment}.tfvars"
+        sh "terraform plan -var-file=${environment}.tfvars"
       }
     }
     stage('terraform apply') {
       steps {
-        bat "terraform apply -var-file=${environment}.tfvars -auto-approve  -no-color"
+       sh "terraform apply -var-file=${environment}.tfvars -auto-approve  -no-color"
       }
     }
   }

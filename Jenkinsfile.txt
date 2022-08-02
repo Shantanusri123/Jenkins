@@ -16,6 +16,9 @@ pipeline {
   tools {
      terraform 'terraform-10'
   }
+  tools{
+       git
+  }
   options {
     skipDefaultCheckout(true)
   }

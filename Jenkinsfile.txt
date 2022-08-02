@@ -32,7 +32,7 @@ pipeline {
  
  steps{
     dir ("terraform-repo"){
- sh "git clone  -o master https://c04205ff-b264-4faf-ac94-6a30a2ede81e@github.com/Shantanusri123/ec2-instance-tfvars.git"
+ sh "git clone  -o master https://c04205ff-b264-4faf-ac94-6a30a2ede81e@github.com/Shantanusri123/jenkins.git"
   }
   } 
 

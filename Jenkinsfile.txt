@@ -14,7 +14,7 @@ pipeline {
   agent any
 
   tools {
-terraform 'terraform-10'
+terraform 
 }
   options {
     skipDefaultCheckout(true)

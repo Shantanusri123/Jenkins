@@ -56,17 +56,14 @@ pipeline {
         sh ' terraform -version'
       }
     }
-    stage('terraform plan') {
+    
+    
+    /*stage('terraform plan') {
       steps {
-        sh './terraformw  -chdir="/var/jenkins_home/workspace/jenkins-test/ec2-Instance" plan -var-file="../ec2-instance-tfvars/${environment}.tfvars"'
+        sh 'terraform   -chdir="/var/jenkins_home/workspace/jenkins-test/ec2-Instance" plan -var-file="../ec2-instance-tfvars/${environment}.tfvars"'
       }
-    }
-    stage('terraform apply') {
-      steps {
-       sh './terraformw apply -var-file=${environment}.tfvars -auto-approve  -no-color'
-      }
-    }
-  }
+    }*/
+   
  /* post {
     always {
       cleanWs()

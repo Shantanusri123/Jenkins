@@ -52,6 +52,8 @@ pipeline {
       steps {
         
         sh 'terraform  -chdir="/var/jenkins_home/workspace/jenkins-test/ec2-Instance" init'
+        
+        sh ' terraform -version'
       }
     }
     stage('terraform plan') {

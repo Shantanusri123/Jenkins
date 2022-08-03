@@ -33,7 +33,7 @@ pipeline {
  
  steps{
     
-     sh  'git clone https://504a0252-cbe2-49b5-9b64-c8c932661c8c@github.com/Shantanusri123/ec2-Instance.git' 
+     sh  'git clone https://67175ee3-540e-4798-84ac-6ba4a0e80fd6@github.com/Shantanusri123/ec2-Instance.git' 
      
      
   } 
@@ -43,7 +43,7 @@ pipeline {
  stage('checkoutec2tfvars') {
   steps{
   
-       sh  'git clone https://504a0252-cbe2-49b5-9b64-c8c932661c8c@github.com/Shantanusri123/ec2-instance-tfvars.git'
+       sh  'git clone https://67175ee3-540e-4798-84ac-6ba4a0e80fd6@github.com/Shantanusri123/ec2-instance-tfvars.git'
     
     }
     

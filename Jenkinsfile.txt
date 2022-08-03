@@ -51,12 +51,12 @@ pipeline {
     stage('terraform init') {
       steps {
         
-        sh 'terraform -chdir="/var/jenkins_home/workspace/test-jenkins/ec2-Instance" init'
+        sh 'terraform -chdir="/var/jenkins_home/workspace/jenkins-test/ec2-Instance" init'
       }
     }
     stage('terraform plan') {
       steps {
-        sh 'terraform -chdir="/var/jenkins_home/workspace/test-jenkins/ec2-Instance" plan -var-file="../ec2-instance-tfvars/${environment}.tfvars"'
+        sh 'terraform -chdir="/var/jenkins_home/workspace/jenkins-test/ec2-Instance" plan -var-file="../ec2-instance-tfvars/${environment}.tfvars"'
       }
     }
     stage('terraform apply') {

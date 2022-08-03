@@ -51,7 +51,7 @@ pipeline {
     stage('terraform init') {
       steps {
         
-        sh './var/jenkins_home/workspace/jenkins-test/ec2-Instance/terraformw  -chdir="/var/jenkins_home/workspace/jenkins-test/ec2-Instance" init'
+        sh './terraformw  -chdir="/var/jenkins_home/workspace/jenkins-test/ec2-Instance" init'
       }
     }
     stage('terraform plan') {

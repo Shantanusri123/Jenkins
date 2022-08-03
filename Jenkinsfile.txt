@@ -35,7 +35,10 @@ pipeline {
     
      sh  'git clone https://504a0252-cbe2-49b5-9b64-c8c932661c8c@github.com/Shantanusri123/ec2-Instance.git'
   } 
-
+steps{
+    
+     sh  'git clone https://504a0252-cbe2-49b5-9b64-c8c932661c8c@github.com/Shantanusri123/ec2-instance-tfvars.git'
+  } 
 }
     
     

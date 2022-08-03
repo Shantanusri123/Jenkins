@@ -57,6 +57,12 @@ pipeline {
       }
     }
     
+     stage('terraform plan') {
+      steps {
+        sh 'terraform plan -var-file="/var/jenkins_home/workspace/jenkins-test/ec2-instance-tfvars/${environment}.tfvars"'
+      }
+    }
+
     
   }
    

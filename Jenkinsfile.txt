@@ -134,7 +134,7 @@ pipeline {
           message "Do you want to destroy remote state file for ${environment} deployment?"
        }
       steps {
-        sh 'terraform -chdir="/var/jenkins_home/workspace/jenkins-test/s3" destroy  -auto-approve -var-file="../security_group_tfvars/${environment}.tfvars"'
+        sh 'terraform -chdir="/var/jenkins_home/workspace/jenkins-test/s3" destroy  -auto-approve -var-file="${environment}.tfvars"'
       }
     }
 

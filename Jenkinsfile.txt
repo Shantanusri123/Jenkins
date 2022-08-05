@@ -60,7 +60,7 @@ pipeline {
        sh  'git clone https://55ce1e92-f249-42a0-b02d-465a544f0bc9@github.com/Shantanusri123/ec2-instance-tfvars.git'
     }
  }
-  /*  stage('terraform init-sg') {
+    stage('terraform init-sg') {
       steps {
         sh 'terraform -chdir="/var/jenkins_home/workspace/jenkins-test/security_group" init -backend-config="../security_group_tfvars/${environment}-backend.tfvars"'
       }
@@ -76,7 +76,7 @@ pipeline {
       steps {
         sh 'terraform -chdir="/var/jenkins_home/workspace/jenkins-test/security_group" apply -auto-approve -var-file="../security_group_tfvars/${environment}.tfvars"'
       }
-    }*/
+    }
     
     stage('terraform init-ec2') {
       steps {

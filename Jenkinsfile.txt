@@ -102,16 +102,7 @@ pipeline {
       }
     }
     
-    stage ('terraform destroy'){
-      input {
-          message "Do you want to destroy resources?"
-      }
-      steps{
-      
-      sh 'terraform destroy -auto-approve'
-      
-     }
-  }
+
    
  }
 }

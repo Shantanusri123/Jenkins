@@ -73,7 +73,10 @@ pipeline {
     }
 
      stage('terraform apply sg') {
-      steps {
+       input{
+          message "Do you want to proceed for '${environment}' deployment?"
+       }
+       steps {
         sh 'terraform -chdir="/var/jenkins_home/workspace/jenkins-test/security_group" apply -auto-approve -var-file="../security_group_tfvars/${environment}.tfvars"'
       }
     }
@@ -91,6 +94,9 @@ pipeline {
     }
 
      stage('terraform apply ec2') {
+      input{
+          message "Do you want to proceed for '${environment}' deployment?"
+       }
       steps {
         sh 'terraform -chdir="/var/jenkins_home/workspace/jenkins-test/ec2-Instance" apply -auto-approve -var-file="../ec2-instance-tfvars/${environment}.tfvars"'
       }

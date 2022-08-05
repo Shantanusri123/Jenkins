@@ -71,7 +71,7 @@ pipeline {
       }
     }
     
-    stage('terraform init-ec2') {
+   /* stage('terraform init-ec2') {
       steps {
         sh 'terraform  -chdir="/var/jenkins_home/workspace/jenkins-test/ec2-Instance" init'
       }
@@ -87,7 +87,7 @@ pipeline {
       steps {
         sh 'terraform -chdir="/var/jenkins_home/workspace/jenkins-test/ec2-Instance" apply -auto-approve -var-file="../ec2-instance-tfvars/${environment}.tfvars"'
       }
-    }
+    }*/
 
   }
    

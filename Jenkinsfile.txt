@@ -101,7 +101,16 @@ pipeline {
         sh 'terraform -chdir="/var/jenkins_home/workspace/jenkins-test/ec2-Instance" apply -auto-approve -var-file="../ec2-instance-tfvars/${environment}.tfvars"'
       }
     }
-
+    
+    stage ('terraform destroy'){
+      input {
+          message "Do you want to destroy resources?"
+      }
+      steps{
+      
+      sh 'terraform destroy -auto-approve'
+      
+     }
   }
    
  

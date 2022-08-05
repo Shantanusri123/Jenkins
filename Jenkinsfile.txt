@@ -37,27 +37,27 @@ pipeline {
  stage('checkoutsg') {
  
  steps{
-     sh  'git clone https://430bba6d-9b18-4ab2-8545-061bcae1edf8@github.com/Shantanusri123/security_group.git' 
+     sh  'git clone https://55ce1e92-f249-42a0-b02d-465a544f0bc9@github.com/Shantanusri123/security_group.git' 
   }  
  }
 
  stage('checkoutsgtfvars') {
 
  steps{
-     sh  'git clone https://430bba6d-9b18-4ab2-8545-061bcae1edf8@github.com/Shantanusri123/security_group_tfvars.git' 
+     sh  'git clone https://55ce1e92-f249-42a0-b02d-465a544f0bc9@github.com/Shantanusri123/security_group_tfvars.git' 
   } 
 }
 
  stage('checkoutec2') {
  
  steps{
-     sh  'git clone https://430bba6d-9b18-4ab2-8545-061bcae1edf8@github.com/Shantanusri123/ec2-Instance.git' 
+     sh  'git clone https://55ce1e92-f249-42a0-b02d-465a544f0bc9@github.com/Shantanusri123/ec2-Instance.git' 
   } 
 }
 
  stage('checkoutec2tfvars') {
   steps{
-       sh  'git clone https://430bba6d-9b18-4ab2-8545-061bcae1edf8@github.com/Shantanusri123/ec2-instance-tfvars.git'
+       sh  'git clone https://55ce1e92-f249-42a0-b02d-465a544f0bc9@github.com/Shantanusri123/ec2-instance-tfvars.git'
     }
  }
   /*  stage('terraform init-sg') {

@@ -33,6 +33,13 @@ pipeline {
         cleanWs()
       }
     }
+    
+    stage('checkouts3') {
+ 
+ steps{
+     sh  'git clone https://55ce1e92-f249-42a0-b02d-465a544f0bc9@github.com/Shantanusri123/s3.git' 
+  }  
+ }
 
  stage('checkoutsg') {
  
@@ -60,6 +67,26 @@ pipeline {
        sh  'git clone https://55ce1e92-f249-42a0-b02d-465a544f0bc9@github.com/Shantanusri123/ec2-instance-tfvars.git'
     }
  }
+ 
+ stage('terraform init-s3') {
+      steps {
+        sh 'terraform -chdir="/var/jenkins_home/workspace/jenkins-test/s3" init '
+      }
+    }
+    stage('terraform plan s3') {
+      steps {
+        sh 'terraform -chdir="/var/jenkins_home/workspace/jenkins-test/s3" plan -var-file="${environment}.tfvars"'
+      }
+    }
+    stage('terraform apply s3') {
+       input{
+          message "Do you want to proceed for ${environment} deployment?"
+       }
+       steps {
+        sh 'terraform -chdir="/var/jenkins_home/workspace/jenkins-test/s3" apply -auto-approve -var-file="${environment}.tfvars"'
+      }
+    }
+    
     stage('terraform init-sg') {
       steps {
         sh 'terraform -chdir="/var/jenkins_home/workspace/jenkins-test/security_group" init -backend-config="../security_group_tfvars/${environment}-backend.tfvars"'

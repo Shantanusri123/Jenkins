@@ -29,21 +29,21 @@ pipeline {
     
    
     
- stage('checkoutec2') {
+ stage('checkoutsg') {
  
  steps{
     
-     sh  'git clone https://7c9b2053-671e-471e-9f8a-e3aa64c00a58@github.com/Shantanusri123/ec2-Instance.git' 
+     sh  'git clone https://7c9b2053-671e-471e-9f8a-e3aa64c00a58@github.com/Shantanusri123/security_groups.git' 
      
      
   } 
 
 }
 
- stage('checkoutec2tfvars') {
+ stage('checkoutsgtfvars') {
   steps{
   
-       sh  'git clone https://7c9b2053-671e-471e-9f8a-e3aa64c00a58@github.com/Shantanusri123/ec2-instance-tfvars.git'
+       sh  'git clone https://7c9b2053-671e-471e-9f8a-e3aa64c00a58@github.com/Shantanusri123/security_groups_tfvars.git'
     
     }
     
@@ -51,7 +51,7 @@ pipeline {
     stage('terraform init') {
       steps {
         
-        sh 'terraform  -chdir="/var/jenkins_home/workspace/jenkins-test/ec2-Instance" init'
+        sh 'terraform  -chdir="/var/jenkins_home/workspace/jenkins-test/security_groups" init'
         
         sh 'terraform -version'
       }
@@ -59,7 +59,7 @@ pipeline {
     
      stage('terraform plan') {
       steps {
-        sh 'terraform plan -var-file="/var/jenkins_home/workspace/jenkins-test/ec2-instance-tfvars/${environment}.tfvars"'
+        sh 'terraform plan -var-file="/var/jenkins_home/workspace/jenkins-test/security_groups_tfvars/${environment}.tfvars"'
       }
     }
 

@@ -26,44 +26,69 @@ pipeline {
         cleanWs()
       }
     }
-    
-   
-    
+
  stage('checkoutsg') {
  
  steps{
-    
-     sh  'git clone https://7c9b2053-671e-471e-9f8a-e3aa64c00a58@github.com/Shantanusri123/security_groups.git' 
-     
-     
-  } 
-
-}
+     sh  'git clone https://7c9b2053-671e-471e-9f8a-e3aa64c00a58@github.com/Shantanusri123/security_group.git' 
+  }  
+ }
 
  stage('checkoutsgtfvars') {
+
+ steps{
+     sh  'git clone https://7c9b2053-671e-471e-9f8a-e3aa64c00a58@github.com/Shantanusri123/security_group_tfvars.git' 
+  } 
+}
+
+ stage('checkoutec2') {
+ 
+ steps{
+     sh  'git clone https://7c9b2053-671e-471e-9f8a-e3aa64c00a58@github.com/Shantanusri123/ec2-Instance.git' 
+  } 
+}
+
+ stage('checkoutec2tfvars') {
   steps{
-  
-       sh  'git clone https://7c9b2053-671e-471e-9f8a-e3aa64c00a58@github.com/Shantanusri123/security_groups_tfvars.git'
-    
+       sh  'git clone https://7c9b2053-671e-471e-9f8a-e3aa64c00a58@github.com/Shantanusri123/ec2-instance-tfvars.git'
     }
-    
  }
-    stage('terraform init') {
+    stage('terraform init-sg') {
       steps {
-        
-        sh 'terraform  -chdir="/var/jenkins_home/workspace/jenkins-test/security_groups" init'
-        
-        sh 'terraform -version'
+        sh 'terraform  -chdir="/var/jenkins_home/workspace/jenkins-test/security_group" init -backend-config="../security_group_tfvars/${environment}-backend.tfvars"'
       }
     }
     
-     stage('terraform plan') {
+     stage('terraform plan sg') {
       steps {
-        sh 'terraform plan -var-file="/var/jenkins_home/workspace/jenkins-test/security_groups_tfvars/${environment}.tfvars"'
+        sh 'terraform -chdir="/var/jenkins_home/workspace/jenkins-test/security_group" plan -var-file="../security_group_tfvars/${environment}.tfvars"'
       }
     }
 
+     stage('terraform apply sg') {
+      steps {
+        sh 'terraform -chdir="/var/jenkins_home/workspace/jenkins-test/security_group" apply -auto-approve -var-file="../security_group_tfvars/${environment}.tfvars"'
+      }
+    }
     
+    stage('terraform init-ec2') {
+      steps {
+        sh 'terraform  -chdir="/var/jenkins_home/workspace/jenkins-test/ec2-Instance" init'
+      }
+    }
+
+     stage('terraform plan ec2') {
+      steps {
+        sh 'terraform -chdir="/var/jenkins_home/workspace/jenkins-test/ec2-Instance" plan -var-file="../ec2-instance-tfvars/${environment}.tfvars"'
+      }
+    }
+
+     stage('terraform apply ec2') {
+      steps {
+        sh 'terraform -chdir="/var/jenkins_home/workspace/jenkins-test/ec2-Instance" apply -auto-approve -var-file="../ec2-instance-tfvars/${environment}.tfvars"'
+      }
+    }
+
   }
    
  

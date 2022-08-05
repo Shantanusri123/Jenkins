@@ -24,7 +24,7 @@ pipeline {
   
     stage('AWS credentials configuration') {
       steps {
-        withAWS(credentials: '4ec83606-9eee-4296-a1a8-236bbffb44e7')
+        withAWS(credentials: '4ec83606-9eee-4296-a1a8-236bbffb44e7'){}
         }
        }
     

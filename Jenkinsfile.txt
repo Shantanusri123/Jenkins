@@ -62,7 +62,7 @@ pipeline {
  }
   /*  stage('terraform init-sg') {
       steps {
-        sh 'terraform  -chdir="/var/jenkins_home/workspace/jenkins-test/security_group" init -backend-config="../security_group_tfvars/${environment}-backend.tfvars"'
+        sh 'terraform -chdir="/var/jenkins_home/workspace/jenkins-test/security_group" init -backend-config="../security_group_tfvars/${environment}-backend.tfvars"'
       }
     }
     
@@ -80,7 +80,7 @@ pipeline {
     
     stage('terraform init-ec2') {
       steps {
-        sh 'terraform  -chdir="/var/jenkins_home/workspace/jenkins-test/ec2-Instance" init'
+        sh 'terraform  -chdir="/var/jenkins_home/workspace/jenkins-test/ec2-Instance" init -upgrade'
       }
     }
 
